@@ -1,0 +1,34 @@
+window.onload=function(){
+
+	let sky = "<div class=\"sky\" >"+
+				"<div class=\"star glow one\"></div>"+
+				"<div class=\"star glow two\"></div>"+
+				"<div class=\"star glow three\"></div>"+
+				"<div class=\"star glow four\"></div>"+
+				"<div class=\"star glow five\"></div>"+
+				"<div class=\"star glow six\"></div>"+
+				"<div class=\"star glow seven\"></div>"+
+				"<div class=\"moon\">"+
+					"<div class=\"crater crater1\"></div>"+
+					"<div class=\"crater crater2\"></div>"+
+					"<div class=\"crater crater3\"></div>"+
+				"</div>"+
+			"</div>"+
+		"<script type=\"text/javascript\" src=\"../framework/bg-check/bg-check.js\"></script>";
+	$("#sky").html(sky)
+	
+	
+	
+	
+	$.getClass("../framework/bootstrap-4.3.1-dist/css/bootstrap.css")
+	$.getClass("../framework/bg-check/bg-check.css")
+	
+	$.getClass("../css/check.css" )
+	$.getScript("../js/operation.js")
+	$.getScript("../js/check.js")
+	$.getClass("../framework/bg-record/bg-record.css");
+	$.nav();
+	$.luna();
+}
+	isError=false;
+	isUndeveloped=false;

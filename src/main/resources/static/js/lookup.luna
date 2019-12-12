@@ -1,0 +1,18 @@
+window.onload=function(){
+
+	
+
+	$.getClass("../framework/bootstrap-4.3.1-dist/css/bootstrap.css")
+	$.getScript("../framework/bootstrap-4.3.1-dist/js/bootstrap.js")
+	$.getClass("../framework/buttonhover/styles.css")
+	
+	$.getClass("../css/lookup.css");
+	$.getScript("../js/operation.js")
+	$.getScript("../js/lookup.js")
+	$.getClass("../framework/bg-record/bg-record.css");
+	$.nav();
+	$.luna();
+	
+}
+	isError=false;
+	isUndeveloped=false;

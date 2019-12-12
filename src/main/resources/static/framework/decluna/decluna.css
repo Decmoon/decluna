@@ -1,0 +1,134 @@
+* {
+	cursor: url(../../image/cursor/transparent_blue/Arrow.cur), auto;
+	font-family: "Comic Sans MS";
+}
+body {
+	background-color: black !important;
+	-webkit-animation: bgbodyfade 5s ease;
+}
+
+@keyframes bgbodyfade {
+	0% {
+		opacity: 0;
+		background-color: dimgray;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.nadiv {
+	box-shadow: 1px 1px 10px grey;
+	position: relative;
+	width: 100%;
+}
+
+
+.nadiv::before {
+	content: "";
+	background: hsla(0, 0%, 100%, .3);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	filter: blur(10px);
+	z-index: -1;
+}
+.nadiv a{
+	color: white !important;
+	font-weight: bold;
+}
+.cursor_hover:hover {
+	cursor: url(../../image/cursor/transparent_blue/Hand.cur), auto;
+}
+
+.cursor_input {
+	color: lightskyblue;
+}
+
+.cursor_input:focus {
+	color: lightsalmon;
+}
+
+.cursor_input:hover {
+	cursor: url(../../image/cursor/transparent_blue/IBeam.cur), auto;
+}
+/*
+.language .dropdown-menu {
+	margin: 0;
+	padding: 2px;
+	box-shadow: 1px 1px 3px blue;
+	background-color: transparent;
+	color: white;
+}
+
+.language .dropdown-menu::before{
+	content: "";
+	background-color: lightcyan;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	filter: blur(1px);
+	opacity: 0.1;
+	z-index: -1;
+	
+}
+.language .dropdown-menu .dropdown-item {
+	color: dimgray;
+}
+
+.language .dropdown-menu .active {
+	background-color: blue;
+	color: white;
+}
+
+.language .dropdown-menu .dropdown-item:hover {
+	cursor: url(../../image/cursor/transparent_blue/Hand.cur), auto;
+	color: cornflowerblue;
+	background-color: orange;
+}*/
+
+
+.transparentElement {
+	background-color: transparent !important;
+	border: none !important;
+	box-shadow: 0px 1px 1px white !important;
+	color: lightgray !important;
+}
+
+.transparentElement::before{
+	content: "";
+	background-color: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	filter: blur(1px);
+	opacity: 0.1;
+}
+
+.transparentElement:hover{
+	border: none;
+	background-color: transparent;
+	box-shadow: 0px 1px 1px white;
+}
+
+
+.transparentElement:focus{
+	border: none;
+	background-color: transparent;
+	box-shadow: 0px 1px 1px white;
+}
+
+.undeveloped {
+	margin-top: 100px;
+}
+
+.undeveloped h3{
+	color: white;
+	text-align: center;
+}

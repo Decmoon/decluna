@@ -1,0 +1,14 @@
+.box{
+	opacity: 0.1;
+}
+.box:hover{
+	opacity: 1;
+}
+
+nav{
+	z-index: 1;
+}
+
+i:hover {
+	cursor: url(../image/cursor/transparent_blue/Hand.cur), auto;
+}

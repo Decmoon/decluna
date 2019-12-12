@@ -1,0 +1,53 @@
+$(function() {
+
+
+	$.getClass("../framework/bootstrap-4.3.1-dist/css/bootstrap.css");
+	$.getScript("../framework/bootstrap-4.3.1-dist/js/bootstrap.js");
+
+	$.getClass("../css/record.css");
+	$.getScript("../js/operation.js");
+	$.getScript("../js/record.js");
+	$.getClass("../framework/bg-record/bg-record.css");
+	$.nav();
+	$.luna();
+
+	var classTypes;
+	var classSize;
+
+	parametersLoad();
+
+	function parametersLoad() {
+		classSize = 1;
+		classTypes = ["Nouns(n.)", "Pronouns(pron.)", "Adjectives(adj.)",
+			"Numerals(num.)", "Verb (v.)", "Adverbs(adv.)",
+			"Articles (art.)", "Prepositions(prep.)", "Conjunctions (conj.)", "Interjections (int.)"
+		];
+	}
+
+	$(".options").each(function(i, o) {
+		if(($(this).attr("id") + "") == "undefined")
+			$(this).attr("id", "wordClass" + classSize);
+		$(this).html(addOption());
+	});
+
+	function addOption() {
+		let optionsString = selectOptions();
+		let c = "";
+		for(let s = 0; s < classTypes.length; s++) {
+			if(optionsString.indexOf(classTypes[s]) != -1) continue;
+			c += "<option>" + classTypes[s] + "</option>";
+		}
+		return c;
+	}
+
+	function selectOptions() {
+		let str = "";
+		$(".options").each(function(i, o) {
+			str += $(this).val();
+		});
+		return str;
+	}
+
+});
+	isError=false;
+	isUndeveloped=false;

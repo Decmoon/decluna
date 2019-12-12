@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>DecLuna</title>
+		<link rel="shortcut icon" type="image/x-icon" href="../image/icon/decluna.png" />
+		<!--decluna framework-->
+		<script type="text/javascript" src="../framework/decluna/jq/decluna-jq.js"></script>
+		<link rel="stylesheet" href="../framework/decluna/decluna.css" />
+		<script type="text/javascript" src="../framework/decluna/decluna.js"></script>
+		<!--self-->
+		<script type="text/javascript" src="../js/lookup.luna"></script>
+		<!--link-->
+
+	</head>
+
+	<body>
+		<div class="bg"><canvas id="bgstar"></canvas></div>
+		<script type="text/javascript" src="../framework/bg-record/bg-record.js"></script>
+		<div id="nav"></div>
+		<div class="lookup">
+			<div class="container mt-3">
+				<div class="input-group mb-3 transparentElement">
+					<input type="text" id="word" class="form-control transparentElement textColor" placeholder="Search for words in your personal dictionary">
+					<div class="input-group-prepend">
+						<button type="button" class="btn cursor_hover draw" onclick="lookup()">Lookup</button>
+					</div>
+				</div>
+			</div>
+			<!--hidding area-->
+			<div data-toggle="collapse" data-target="#displayArea" id="test"></div>
+			<!--end hidding area-->
+			<div class="look" id="look">
+			</div>
+		</div>
+		<div id="luna"></div>
+		
+	</body>
+
+</html>

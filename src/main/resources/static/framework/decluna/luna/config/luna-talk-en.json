@@ -1,0 +1,85 @@
+{
+  "mouseover": [
+    {
+      "selector": "#luna_home",
+      "text": [
+        "Lick to go to the <b>Home page</b>,If you wanna go back to the previous page, can use the browser's back function~"
+      ]
+    },
+    {
+      "selector": ".luna_canvas",
+      "text": [
+        "You .. you , get your hands off me~",
+        "Mou...mouse is in the wrong place!",
+        "Are you loli complex?<br><b>(⺣◡⺣)♡</b>",
+        "Do you see my little bear?",
+        "See , UFO!<br/><b>(✪ω✪)</b>"
+      ]
+    },
+    {
+      "selector": "#luna_exit",
+      "text": [
+        "Do you want to play <b>hide-and-seek</b>? Refresh the page and I'll be back~~~"
+      ]
+    },
+    {
+      "selector": "#luna_cosplay",
+      "text": [
+       "Do you want to change clothes for me?"
+      ]
+    }
+  ],
+  "click": [
+    {
+      "selector": ".luna canvas",
+      "text": [
+        "Am i beautiful?",
+        "You came across me by accident, didn't you?",
+        "Stop touching me! I'm going to call the police!<br/><b>⌇●﹏●⌇</b>",
+        "911? There's always a pervert touching me!<br/><b>(ó﹏ò｡)<b>",
+        "You pervert!",
+        "Aa~Stop!"
+      ]
+    },
+    {
+      "selector": "#luna_exit",
+      "text": [
+        "Hum~"
+      ]
+    }
+  ],
+  "seasons": [
+    {
+      "date": "01/01",
+      "text": "The new year begins again,this year is {year}~"
+    },
+    {
+      "date": "02/14",
+      "text": "<b>Valentine's day</b>. Have you found a partner~"
+    },
+    {
+      "date": "03/08",
+      "text": "Today is <b>Women's Day</b>!"
+    },
+    {
+      "date": "04/01",
+      "text": "Tell you a secret quietly,today is <b>April Fool's day</b>! Don't be cheated~~~"
+    },
+    {
+      "date": "06/01",
+      "text": "Today is <b>children's day</b>. Happy time is always short. I hope we will never grow up!!!"
+    },
+    {
+      "date": "09/16",
+      "text": "Today is Mexico's National Day! It's my master<b>(Meli)</b>'s country~"
+    },
+    {
+      "date": "10/01",
+      "text": "Today is China's National Day! It's my master<b>(decmoon)</b>'s country~"
+    },
+    {
+      "date": "12/24-12/25",
+      "text": "Oh,Jingle bells, jingle bells,Jingle all the way ~!!  Merry Christmas !!!"
+    }
+  ]
+}

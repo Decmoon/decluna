@@ -1,0 +1,64 @@
+
+
+body{
+	/*background-image: url(../image/lookup/bg.jpg);
+	background-repeat: no-repeat;
+	height: auto;
+	background-size: 100%, 100%;*/
+}
+
+.lookup {
+	width: 70%;
+	margin: auto;
+}
+
+.look {
+	width:97% !important;
+	margin: auto;
+	border-radius: 10px;
+	box-shadow: 0px 0px 1px lightgray;
+	position: relative;
+	top: 30px;
+	overflow: hidden;
+	width: 100%;
+}
+
+
+.look::before {
+	content: "";
+	background: hsla(0, 0%, 100%, .1);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	filter: blur(20px);
+	z-index: -1;
+}
+
+.look h5,.look span {
+	color: white;
+	text-shadow: 1px 1px 1px lightgray;
+}
+
+hr {
+	background-color: white;
+	height: 1px;
+	border: none;
+}
+input[text]{
+	background-color: transparent !important;
+	border: none;
+}
+input[text]:hover{
+	box-shadow: none !important;
+}
+/*input[text]:active{
+	box-shadow: none !important;
+}*/
+
+
+.textColor {
+	font-weight: bold;
+	color: skyblue;
+}

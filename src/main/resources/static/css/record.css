@@ -1,0 +1,69 @@
+body {
+	/*background-image: url(../image/record/bg.jpg);
+	background-repeat: no-repeat;
+	height: auto;
+	background-size: 100%, 100%;*/
+}
+
+
+
+.wordEntry {
+	width: 95%;
+	margin: auto;
+	padding-top: 50px;
+}
+
+.wordEntry .word {
+	width: 45%;
+	display: inline-block;
+}
+
+.wordEntry .word_default_class {
+	width: 45%;
+	display: inline-block;
+}
+
+.wordEntry .translate_wordclass {
+	width: 30%;
+	display: inline-block;
+}
+
+.wordEntry .translate {
+	width: 60%;
+	display: inline-block;
+}
+  
+.wordEntry .button button {
+	width: 174px;
+	box-shadow: 2px 2px 3px gray;
+	border-radius: 10px 10px 10px 10px;
+	margin: auto;
+	position: relative;
+}
+
+
+
+.elementFade {
+	-webkit-animation: aa 1s ease;
+}
+@keyframes aa {
+	0% {
+		opacity: 0;
+		background-color: #ffffff;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+
+.textColor{
+	font-weight: bold;
+	color: skyblue;
+}
+
+option{
+	background-color: cornflowerblue;
+	opacity: 0.1;
+	color: white;
+}

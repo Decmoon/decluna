@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			@font-face {
+				font-family: 'Flat-UI-Icons';
+				src: url('flat-ui-icons-regular.eot');
+				src: url('flat-ui-icons-regular.eot?#iefix') format('embedded-opentype'), url('flat-ui-icons-regular.woff') format('woff'), url('flat-ui-icons-regular.ttf') format('truetype'), url('flat-ui-icons-regular.svg#flat-ui-icons-regular') format('svg');
+			}
+			
+			[class^="fui-"],
+			[class*="fui-"] {
+				font-family: 'Flat-UI-Icons';
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				-webkit-font-smoothing: antialiased;
+				-moz-osx-font-smoothing: grayscale;
+			}
+			
+			.fui-e600::before {
+				content: "\e600";
+			}
+			
+			.fui-e601::before {
+				content: "\e601";
+			}
+			
+			.fui-e602::before {
+				content: "\e602";
+			}
+			
+			.fui-e603::before {
+				content: "\e603";
+			}
+			
+			.fui-e604::before {
+				content: "\e604";
+			}
+			
+			.fui-e605::before {
+				content: "\e605";
+			}
+			
+			.fui-e606::before {
+				content: "\e606";
+			}
+			
+			.fui-e607::before {
+				content: "\e607";
+			}
+			
+			.fui-e608::before {
+				content: "\e608";
+			}
+			
+			.fui-e609::before {
+				content: "\e609";
+			}
+			
+			.fui-e60a::before {
+				content: "\e60a";
+			}
+			
+			.fui-e60b::before {
+				content: "\e60b";
+			}
+			
+			.fui-e60c::before {
+				content: "\e60c";
+			}
+			
+			.fui-e60d::before {
+				content: "\e60d";
+			}
+			
+			.fui-e60e::before {
+				content: "\e60e";
+			}
+			
+			.fui-e60f::before {
+				content: "\e60f";
+			}
+			/*==================*/
+			
+			.fui-e610::before {
+				content: "\e610";
+			}
+			
+			.fui-e611::before {
+				content: "\e611";
+			}
+			
+			.fui-e612::before {
+				content: "\e612";
+			}
+			
+			.fui-e613::before {
+				content: "\e613";
+			}
+			
+			.fui-e614::before {
+				content: "\e614";
+			}
+			
+			.fui-e615::before {
+				content: "\e615";
+			}
+			
+			.fui-e616::before {
+				content: "\e616";
+			}
+			
+			.fui-e617::before {
+				content: "\e617";
+			}
+			
+			.fui-e618::before {
+				content: "\e618";
+			}
+			
+			.fui-e619::before {
+				content: "\e619";
+			}
+			
+			.fui-e61a::before {
+				content: "\e61a";
+			}
+			
+			.fui-e61b::before {
+				content: "\e61b";
+			}
+			
+			.fui-e61c::before {
+				content: "\e61c";
+			}
+			
+			.fui-e61d::before {
+				content: "\e61d";
+			}
+			
+			.fui-e61e::before {
+				content: "\e61e";
+			}
+			
+			.fui-e61f::before {
+				content: "\e61f";
+			}
+			/*==================*/
+			
+			.fui-e620::before {
+				content: "\e620";
+			}
+			
+			.fui-e621::before {
+				content: "\e621";
+			}
+			
+			.fui-e622::before {
+				content: "\e622";
+			}
+			
+			.fui-e623::before {
+				content: "\e623";
+			}
+			
+			.fui-e624::before {
+				content: "\e624";
+			}
+			
+			.fui-e625::before {
+				content: "\e625";
+			}
+			
+			.fui-e626::before {
+				content: "\e626";
+			}
+			
+			.fui-e627::before {
+				content: "\e627";
+			}
+			
+			.fui-e628::before {
+				content: "\e628";
+			}
+			
+			.fui-e629::before {
+				content: "\e629";
+			}
+			
+			.fui-e62a::before {
+				content: "\e62a";
+			}
+			
+			.fui-e62b::before {
+				content: "\e62b";
+			}
+			
+			.fui-e62c::before {
+				content: "\e62c";
+			}
+			
+			.fui-e62d::before {
+				content: "\e62d";
+			}
+			
+			.fui-e62e::before {
+				content: "\e62e";
+			}
+			
+			.fui-e62f::before {
+				content: "\e62f";
+			}
+			/*==================*/
+			
+			.fui-e630::before {
+				content: "\e630";
+			}
+			
+			.fui-e631::before {
+				content: "\e631";
+			}
+			
+			.fui-e632::before {
+				content: "\e632";
+			}
+			
+			.fui-e633::before {
+				content: "\e633";
+			}
+			
+			.fui-e634::before {
+				content: "\e634";
+			}
+			
+			.fui-e635::before {
+				content: "\e635";
+			}
+			
+			.fui-e636::before {
+				content: "\e636";
+			}
+			
+			.fui-e637::before {
+				content: "\e637";
+			}
+			
+			.fui-e638::before {
+				content: "\e638";
+			}
+			
+			.fui-e639::before {
+				content: "\e639";
+			}
+			
+			.fui-e63a::before {
+				content: "\e63a";
+			}
+			
+			.fui-e63b::before {
+				content: "\e63b";
+			}
+			
+			.fui-e63c::before {
+				content: "\e63c";
+			}
+			
+			.fui-e63d::before {
+				content: "\e63d";
+			}
+			
+			.fui-e63e::before {
+				content: "\e63e";
+			}
+			
+			.fui-e63f::before {
+				content: "\e63f";
+			}
+			/*==================*/
+			
+			.fui-e640::before {
+				content: "\e640";
+			}
+			
+			.fui-e641::before {
+				content: "\e641";
+			}
+			
+			.fui-e642::before {
+				content: "\e642";
+			}
+			
+			.fui-e643::before {
+				content: "\e643";
+			}
+			
+			.fui-e644::before {
+				content: "\e644";
+			}
+			
+			.fui-e645::before {
+				content: "\e645";
+			}
+			
+			.fui-e646::before {
+				content: "\e646";
+			}
+			
+			.fui-e647::before {
+				content: "\e647";
+			}
+			
+			.fui-e648::before {
+				content: "\e648";
+			}
+			
+			.fui-e649::before {
+				content: "\e649";
+			}
+			
+			.fui-e64a::before {
+				content: "\e64a";
+			}
+			
+			.fui-e64b::before {
+				content: "\e64b";
+			}
+			
+			.fui-e64c::before {
+				content: "\e64c";
+			}
+			
+			.fui-e64d::before {
+				content: "\e64d";
+			}
+			
+			.fui-e64e::before {
+				content: "\e64e";
+			}
+			
+			.fui-e64f::before {
+				content: "\e64f";
+			}
+			/*==================*/
+			
+			.fui-e650::before {
+				content: "\e650";
+			}
+			
+			.fui-e651::before {
+				content: "\e651";
+			}
+			
+			.fui-e652::before {
+				content: "\e652";
+			}
+			
+			.fui-e653::before {
+				content: "\e653";
+			}
+			
+			.fui-e654::before {
+				content: "\e654";
+			}
+			
+			.fui-e655::before {
+				content: "\e655";
+			}
+			
+			.fui-e656::before {
+				content: "\e656";
+			}
+			
+			.fui-e657::before {
+				content: "\e657";
+			}
+			
+			.fui-e658::before {
+				content: "\e658";
+			}
+			
+			.fui-e659::before {
+				content: "\e659";
+			}
+			
+			.fui-e65a::before {
+				content: "\e65a";
+			}
+			
+			.fui-e65b::before {
+				content: "\e65b";
+			}
+			
+			.fui-e65c::before {
+				content: "\e65c";
+			}
+			
+			.fui-e65d::before {
+				content: "\e65d";
+			}
+			
+			.fui-e65e::before {
+				content: "\e65e";
+			}
+			
+			.fui-e65f::before {
+				content: "\e65f";
+			}
+			/*===========*/
+			
+			.fui-e660::before {
+				content: "\e660";
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="div"></div>
+
+		<script>
+			var html = "";
+			for(j = 0; j <= 5; j++) {
+				for(i = 0; i <= 15; i++) {
+					let ii;
+					switch(i) {
+						case 10:
+							ii = 'a';
+							break;
+						case 11:
+							ii = 'b';
+							break;
+						case 12:
+							ii = 'c';
+							break;
+						case 13:
+							ii = 'd';
+							break;
+						case 14:
+							ii = 'e';
+							break;
+						case 15:
+							ii = 'f';
+							break;
+						default:
+							ii = i;
+							break;
+					}
+					let e = "e6" + j + ii;
+					html += e + ':   <span class="fui-' + e + '"></span><br/>';
+				}
+				html += "<hr/>";
+			}
+
+			document.getElementById("div").innerHTML = html;
+		</script>
+		<hr /> e660: <span class="fui-e660"></span><br/>
+		<hr />
+
+	</body>
+
+</html>

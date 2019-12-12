@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>DecLuna</title>
+		<link rel="shortcut icon"  type="image/x-icon" href="../image/icon/decluna.png"/>
+		<!--decluna framework-->
+		<script type="text/javascript" src="../framework/decluna/jq/decluna-jq.js"></script>
+		<link rel="stylesheet" href="../framework/decluna/decluna.css" />
+		<script type="text/javascript" src="../framework/decluna/decluna.js"></script>
+		<!--self-->
+		<script type="text/javascript" src="../js/record.luna" ></script>
+		<!--link-->
+		
+	
+
+	</head>
+
+	<body>
+		<div class="bg"><canvas id="bgstar"></canvas></div>
+		<script type="text/javascript" src="../framework/bg-record/bg-record.js" ></script>
+			<div id="nav"></div>
+			<div class="wordEntry">
+
+				<div class="word">
+					<div class="input-group mb-3 ">
+						<div class="input-group-prepend ">
+							<span class="input-group-text transparentElement">Word</span>
+						</div>
+						<input type="text" id="wordName" class="form-control cursor_input transparentElement textColor " placeholder="Add words to your exercise">
+					</div>
+				</div>
+
+				<div class="multiple_wordclass" id="multiple_wordclass">
+					<!--important-->
+					<div id="class1">
+						<div class="translate_wordclass">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text transparentElement">Part of speech</span>
+								</div>
+								<select class="form-control options cursor_hover transparentElement" onmouseenter="selectOnmouseenter()">
+								</select>
+							</div>
+						</div>
+						<div class="translate">
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text transparentElement">Means</span>
+								</div>
+								<input type="text" class="form-control cursor_input transparentElement textColor" placeholder="The word meaning,multiple translations are separated by semicolons" title="The word meaning,multiple translations are separated by semicolons">
+							</div>
+						</div>
+
+					</div>
+					<div id="class2"></div>
+					<div id="class3"></div>
+					<div id="class4"></div>
+					<div id="class5"></div>
+					<div id="class6"></div>
+					<div id="class7"></div>
+					<div id="class8"></div>
+					<div id="class9"></div>
+					<div id="class10"></div>
+				</div>
+
+				<div class="button ">
+					<button type="button" onclick="addAttribute()" class="btn btn-dark cursor_hover" title="Add word attributes">Add attribute </button>
+					<button type="button" onclick="delAttribute()" class="btn btn-dark cursor_hover" title="Delete word attributes">Del attribute </button>
+					<button type="button" onclick="recordWord()" class="btn btn-dark cursor_hover" title="Add to the word pool" data-toggle="modal" data-target="#ale">Add</button>
+				</div>
+			</div>
+
+			<!-- Hidden area -->
+			<div class="modal fade" id="ale">
+				<div class="modal-dialog">
+					<div class="modal-header">
+						<div class="alert alert-warning" id="alert_title">
+							<strong></strong>
+						</div>
+					</div>
+					<div class="modal-body">
+						<div class="alert alert-success" id="alert_body">
+							<strong></strong>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="luna"></div>
+	</body>
+
+	</html>

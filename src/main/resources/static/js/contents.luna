@@ -1,0 +1,17 @@
+window.onload=function(){
+
+
+	
+	$.getClass("../framework/bootstrap-4.3.1-dist/css/bootstrap.css");
+	$.getClass("../framework/mouse-hover-image/mouse-hover-image.css");
+	$.getClass("https://use.fontawesome.com/releases/v5.0.13/css/all.css");
+	$.getScript("../framework/mouse-move-line/mouse-move-line.js");
+	
+	$.getClass("../framework/bg-contents/bg-contents.css");
+	$.getScript("../framework/bg-contents/bg-contents.js");
+	$.getClass("../css/contents.css");
+	$.nav();
+	$.luna();
+}
+	isError=false;
+	isUndeveloped=false;
