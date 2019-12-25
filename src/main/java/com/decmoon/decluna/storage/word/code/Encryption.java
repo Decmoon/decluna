@@ -7,28 +7,29 @@ import com.decmoon.shortcut.string.Strings;
 import com.decmoon.shortcut.string.ToString;
 
 import java.util.List;
+
 /**
  * @author decmoon
  */
 public class Encryption {
 
+    private Encryption() {
+    }
+
     public static String encryption(Word word) {
-        String wordName = word.getWord();
+        String wordName = word.getWordName();
         String translateString = encryption(word.getTranslations());
         return ToString.toString(wordName, Mark.WORD_TRANSLATION_SEPARATOR, translateString);
     }
 
 
-
     private static String encryption(List<Translate> translates) {
-        StringBuffer stringBuffer = Strings.newStringBuffer();
+        StringBuilder stringBuilder = Strings.newStringBuilder();
         for (Translate translate : translates) {
-            stringBuffer.append(translate.getWordClass() + Mark.CLASS_TRANSLATION_SEPARATOR + translate.getWordTranslations() + Mark.TRANSLATION_SEPARATOR);
+            stringBuilder.append(translate.getWordClass() + Mark.CLASS_TRANSLATION_SEPARATOR + translate.getWordTranslations() + Mark.TRANSLATION_SEPARATOR);
         }
-        return stringBuffer.substring(0, stringBuffer.length() - 1);
+        return stringBuilder.substring(0, stringBuilder.length() - 1);
     }
-
-
 
 
 }

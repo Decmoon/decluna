@@ -13,11 +13,10 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-import static com.decmoon.decluna.storage.utils.Jsons.getJsonFromFile;
-import static com.decmoon.decluna.storage.utils.Jsons.newJSONObject;
-import static com.decmoon.decluna.storage.utils.Jsons.put;
+import static com.decmoon.decluna.storage.utils.Jsons.*;
 
 /**
  * @author decmoon
@@ -56,7 +55,7 @@ public class ElfService {
     public JSONObject model(String lunaCodeString) {
         String lunaCode = LunaCode.getLunaCode(lunaCodeString + ".luna");
         if (Arguments.parameterLegal(lunaCode))
-            return getJsonFromFile(LunaConfig.PATH + lunaCode);
+            return getJsonFromFile(LunaConfig.getPATH() + lunaCode);
         else
             ExceptionLogger.parameterErr(ElfService.class, "model(String lunaCodeString)", "lunaCode not exist");
         return null;
@@ -69,22 +68,26 @@ public class ElfService {
      * @param path
      * @throws IOException
      */
-    public void fileDownload(HttpServletResponse response, String path) throws IOException {
+    public void fileDownload(HttpServletResponse response, String path) {
         File file = new File(Jsons.class.getResource(path).getPath());
         if (file.exists()) {
-            response.setHeader("content-type", "application/octet-stream");
-            response.setContentType("application/octet-stream");
-            response.setHeader("Content-Disposition", "attachment;filename=" + new String(file.getName().getBytes("utf-8"), "ISO-8859-1"));
-            byte[] buffer = new byte[1024];
-            FileInputStream fis;
-            BufferedInputStream bis;
-            fis = new FileInputStream(file);
-            bis = new BufferedInputStream(fis);
-            OutputStream os = response.getOutputStream();
-            int i = bis.read(buffer);
-            while (i != -1) {
-                os.write(buffer, 0, i);
-                i = bis.read(buffer);
+
+            try (
+                FileInputStream fis = new FileInputStream(file);
+                BufferedInputStream  bis = new BufferedInputStream(fis);
+                OutputStream os = response.getOutputStream();
+                ){
+                response.setHeader("content-type", "application/octet-stream");
+                response.setContentType("application/octet-stream");
+                response.setHeader("Content-Disposition", "attachment;filename=" + new String(file.getName().getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1));
+                byte[] buffer = new byte[1024];
+                int i = bis.read(buffer);
+                while (i != -1) {
+                    os.write(buffer, 0, i);
+                    i = bis.read(buffer);
+                }
+            } catch (IOException e) {
+               ExceptionLogger.parameterErr(ElfService.class," fileDownload(HttpServletResponse response, String path)","fileDownload failure");
             }
         }
     }

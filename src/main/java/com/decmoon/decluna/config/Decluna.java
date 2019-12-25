@@ -13,7 +13,7 @@ public class Decluna {
     /**
      * Request jump page
      */
-    protected final static Map<String, String> PAGES = new HashMap<>();
+    protected static final Map<String, String> PAGES = new HashMap<>();
 
     static {
         put("/", "index.html");
@@ -26,6 +26,8 @@ public class Decluna {
         put("/error", "html/error.html");
     }
 
+    private Decluna() {
+    }
 
     private static void put(String key, String value) {
         PAGES.put(key, value);

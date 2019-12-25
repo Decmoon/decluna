@@ -15,7 +15,7 @@ import java.util.Map;
  * @see Decluna
  */
 @Configuration
-public class DeclunaWebConfigurer extends Decluna implements WebMvcConfigurer {
+public class DeclunaWebConfigurer implements WebMvcConfigurer {
 
 
     @Autowired
@@ -23,7 +23,7 @@ public class DeclunaWebConfigurer extends Decluna implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        for (Map.Entry<String, String> en : PAGES.entrySet()) {
+        for (Map.Entry<String, String> en : Decluna.PAGES.entrySet()) {
             registry.addViewController(en.getKey()).setViewName(en.getValue());
         }
     }

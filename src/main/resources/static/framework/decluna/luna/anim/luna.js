@@ -4,7 +4,6 @@ String.prototype.render = function(context) {
 	var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
 	return this.replace(tokenReg, function(word, slash1, token, slash2) {
 		if(slash1 || slash2) {
-			console.log("word.replace('\\', '') " + word.replace('\\', ''))
 			return word.replace('\\', '');
 		}
 		var variables = token.replace(/\s/g, '').split('.');
@@ -74,6 +73,7 @@ function initModel(waifuPath) {
 	loadModel(localStorage.getItem(luna));
 	$.ajax({
 		cache: true,
+		type: "post",
 		url: waifuPath,
 		dataType: "json",
 		success: function(result) {
@@ -119,6 +119,7 @@ function loadOtherModel() {
 	let lunaCode = localStorage.getItem(luna);
 	$.ajax({
 		cache: false,
+		type: "get",
 		url: '/elf/change?lunaCode=' + lunaCode,
 		dataType: "json",
 		success: function(data) {

@@ -4,35 +4,27 @@ package com.decmoon.decluna.storage.core;
 import com.decmoon.decluna.storage.io.WordsMemory;
 import com.decmoon.decluna.storage.word.Word;
 import com.decmoon.shortcut.log.Logger;
-import org.springframework.context.annotation.Configuration;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
+
 /**
  * @author decmoon
  */
-@Configuration
 public class Words {
 
-    private static Set<Word> words;
+    private static Set<Word> wordsContainer;
 
     static {
         Logger.log("Words  initializing ");
-        words = WordsMemory.load();
+        wordsContainer = WordsMemory.load();
+    }
+
+    private Words() {
     }
 
     private static Set<Word> getWords() {
-        return words;
-    }
-
-    private static Word getWord(String wordName) {
-        for (Word word : words) {
-            if (word.getWord().equals(wordName)) {
-                return word;
-            }
-        }
-        return null;
+        return wordsContainer;
     }
 
     public static Set<Word> getUnmodifiableWords() {
@@ -41,7 +33,7 @@ public class Words {
 
 
     public static void addWord(Word word) {
-        words.add(word);
+        wordsContainer.add(word);
         WordsMemory.flush();
     }
 
@@ -51,18 +43,18 @@ public class Words {
         }
     }
 
-    public static void delWord(String worldName) {
+    public static void deleteWord(String worldName) {
         for (Word word : getWords()) {
-            if (word.getWord().equals(worldName)) {
-                words.remove(word);
+            if (word.getWordName().equals(worldName)) {
+                wordsContainer.remove(word);
                 break;
             }
         }
     }
 
-    public static void delWords(String... worldNames) {
+    public static void deleteWords(String... worldNames) {
         for (String worldName : worldNames) {
-            delWord(worldName);
+            deleteWord(worldName);
         }
     }
 

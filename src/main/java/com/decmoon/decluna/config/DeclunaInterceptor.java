@@ -15,15 +15,16 @@ import java.util.Map;
  * @see Decluna
  */
 @Configuration
-public class DeclunaInterceptor extends Decluna implements HandlerInterceptor {
-    {
+public class DeclunaInterceptor  implements HandlerInterceptor {
+
+    static {
         Logger.log("DeclunaInterceptor initializing");
     }
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String requestURL = request.getRequestURL().toString();
-        boolean is = urlEquals(requestURL, PAGES) || urlContains(requestURL, "/elf/", "/word/", "/css/", "index.html","/framework/", "/html/", "/image/", "/js/");
+        boolean is = urlEquals(requestURL,Decluna.PAGES) || urlContains(requestURL, "/elf/", "/word/", "/css/", "index.html", "/framework/", "/html/", "/image/", "/js/");
         if (is) {
             return is;
         } else {
@@ -46,7 +47,7 @@ public class DeclunaInterceptor extends Decluna implements HandlerInterceptor {
 
     private boolean urlEquals(String url, Map<String, String> map) {
         boolean is = false;
-        String u = url.substring(url.lastIndexOf("/"));
+        String u = url.substring(url.lastIndexOf('/'));
         for (Map.Entry<String, String> entry : map.entrySet()) {
             if (entry.getKey().equals(u)) {
                 is = true;

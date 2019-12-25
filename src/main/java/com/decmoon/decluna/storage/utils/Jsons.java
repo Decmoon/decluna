@@ -12,10 +12,17 @@ import com.decmoon.shortcut.string.Strings;
 import lombok.NonNull;
 
 import java.io.BufferedReader;
+import java.io.IOException;
+
 /**
  * @author decmoon
  */
 public class Jsons {
+
+
+    private Jsons() {
+    }
+
     public static JSONObject newJSONObject() {
         return new JSONObject();
     }
@@ -54,20 +61,22 @@ public class Jsons {
 
 
     public static JSONObject getJsonFromFile(String path) {
-        try {
-            String effectivePath = Jsons.class.getResource(path).getPath();
-            if (Arguments.parameterLegal(effectivePath)) {
-                BufferedReader bufferedReader = BufferedReaderGenerator.newBufferedReader(FileReaderGenerator.newFileReader(Files.newFile(effectivePath)));
+        String effectivePath = Jsons.class.getResource(path).getPath();
+        if (Arguments.parameterLegal(effectivePath)) {
+            try (BufferedReader bufferedReader = BufferedReaderGenerator.newBufferedReader(FileReaderGenerator.newFileReader(Files.newFile(effectivePath)));) {
                 String s;
-                StringBuffer stringBuffer = Strings.newStringBuffer();
-                while ((s = bufferedReader.readLine()) != null) stringBuffer.append(s);
-                return (JSONObject) JSON.parse(stringBuffer.toString());
-            } else {
-                ExceptionLogger.parameterErr(Jsons.class, "getJsonFromFile(String path)", "path not exist");
+                StringBuilder stringBuilder = Strings.newStringBuilder();
+                while ((s = bufferedReader.readLine()) != null) {
+                    stringBuilder.append(s);
+                }
+                return (JSONObject) JSON.parse(stringBuilder.toString());
+            } catch (IOException e) {
+                ExceptionLogger.parameterErr(Jsons.class, "getJsonFromFile(String path)", e);
             }
-        } catch (Exception e) {
-            ExceptionLogger.parameterErr(Jsons.class, "getJsonFromFile(String path)", e);
+        } else {
+            ExceptionLogger.parameterErr(Jsons.class, "getJsonFromFile(String path)", "path not exist");
         }
+
         return null;
     }
 

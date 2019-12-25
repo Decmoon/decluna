@@ -4,12 +4,16 @@ import com.decmoon.shortcut.math.RandomNumberGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * @author decmoon
  */
 public class Joke {
 
     private static List<String> list = new ArrayList<>();
+
+    private Joke() {
+    }
 
     static {
         list.add("Nevertrouble trouble till trouble troubles you");
@@ -24,6 +28,6 @@ public class Joke {
     }
 
     public static String joke() {
-        return list.get(RandomNumberGenerator.random(0,list.size()));
+        return list.get(RandomNumberGenerator.random(0, list.size()));
     }
 }

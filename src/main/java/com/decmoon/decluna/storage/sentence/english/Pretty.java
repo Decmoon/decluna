@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * @author decmoon
  */
@@ -12,6 +13,9 @@ import java.util.List;
 public class Pretty {
 
     private static List<String> list = new ArrayList<>();
+
+    private Pretty() {
+    }
 
     static {
         list.add("Life was like a box of chocolates, you never know what you're gonna get.^---Forrest Gump");
@@ -21,7 +25,7 @@ public class Pretty {
     }
 
     public static String pretty() {
-        return list.get(RandomNumberGenerator.random(0,list.size()));
+        return list.get(RandomNumberGenerator.random(0, list.size()));
     }
 
 }

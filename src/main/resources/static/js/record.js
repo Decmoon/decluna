@@ -41,7 +41,7 @@ function recordWord() {
 	let _means = turnJson();
 	$.ajax({
 		url: decluna_wrod+"/record/add",
-		type: "get",
+		type: "post",
 		data: {
 			wordName: _word,
 			translate: _means

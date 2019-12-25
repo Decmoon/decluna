@@ -5,6 +5,8 @@ import com.decmoon.decluna.service.elf.ElfService;
 import com.decmoon.decluna.storage.elf.LunaConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -24,28 +26,28 @@ public class LunaElfController {
     private ElfService elfService;
 
 
-    @RequestMapping("/getLunaTalk")
+    @PostMapping("/getLunaTalk")
     @ResponseBody
     public Callable<JSONObject> lunaTalk() {
-        return () -> LunaConfig.LUNA_TALK;
+        return LunaConfig::getLUNA_TALK;
     }
 
-    @RequestMapping("/change")
+    @GetMapping("/change")
     @ResponseBody
     public Callable<JSONObject> changeModel(String lunaCode) {
         return () -> elfService.changeModel(lunaCode);
     }
 
 
-    @RequestMapping("/model")
+    @GetMapping("/model")
     @ResponseBody
     public Callable<JSONObject> model(String lunaCode) {
         return () -> elfService.model(lunaCode);
     }
 
 
-    @RequestMapping("/down")
-    public void downloadFile(HttpServletResponse response, String path) throws Exception {
+    @GetMapping("/down")
+    public void downloadFile(HttpServletResponse response, String path) {
         elfService.fileDownload(response, path);
     }
 

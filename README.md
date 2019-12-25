@@ -105,6 +105,14 @@ if "%TEMP%" == "" goto mainEntry
 
 ````
 
+拷贝项目
+-
+> 如果因为文件太大造成的克隆失败，请在**.gitconfig** 文件中设置以下字段
+````
+[core]
+    compression = -1
+````
+
 版权
 -
 Decluna 项目版权归  © [Decmoon](https://github.com/Decmoon) 所有,仅用于学习参考,如有其他用途请与原作者联系
@@ -124,7 +132,7 @@ Decluna 项目版权归  © [Decmoon](https://github.com/Decmoon) 所有,仅用�
 祝福keep单身的你，马上就会遇到对的TA~
 <br/><br/><br/><br/><br/>
 
-##ENGLISH VERSION~~~~~~~~~~~~~~>
+## ENGLISH VERSION~~~~~~~~~~~~~~>
 
 <br/><br/><br/><br/><br/>
 
@@ -210,6 +218,14 @@ if "%TEMP%" == "" goto mainEntry
 ....
 ...
 
+````
+
+Clone
+-
+> If the clone failed because the file was too large, set it in the **.gitconfig** file
+````
+[core]
+    compression = -1
 ````
 
 

@@ -10,7 +10,7 @@ import java.util.Objects;
 @Data
 public class Word {
 
-    private String word;
+    private String wordName;
 
     private List<Translate> translations;
 
@@ -18,17 +18,17 @@ public class Word {
     }
 
     public Word(String word, List<Translate> translations) {
-        this.word = word;
+        this.wordName = word;
         this.translations = translations;
     }
 
     @Override
     public boolean equals(Object object) {
-        return (object instanceof Word && this.word.equalsIgnoreCase(((Word) object).getWord()));
+        return (object instanceof Word && this.wordName.equalsIgnoreCase(((Word) object).getWordName()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(word);
+        return Objects.hash(wordName);
     }
 }

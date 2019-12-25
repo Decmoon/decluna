@@ -3,30 +3,34 @@ package com.decmoon.decluna.storage.word.code;
 import com.decmoon.decluna.storage.word.Mark;
 import com.decmoon.shortcut.argument.Arguments;
 import com.decmoon.shortcut.string.Strings;
+
 /**
  * @author decmoon
  */
 public class WordFormat {
 
+    private WordFormat() {
+    }
+
     public static String format(String translate) {
         String crudeTranslate = countriesFormat(translate);
-        StringBuffer pureTranslate = Strings.newStringBuffer();
+        StringBuilder pureTranslate = Strings.newStringBuilder();
         String str = crudeTranslate.trim();
-        String[] means = str.split(Mark.RegExp_TRANSLATION_SEPARATOR);
+        String[] means = str.split(Mark.REGEXP_TRANSLATION_SEPARATOR);
         for (String mean : means) {
-            String[] split = mean.split(Mark.RegExp_CLASS_TRANSLATION_SEPARATOR);
+            String[] split = mean.split(Mark.REGEXP_CLASS_TRANSLATION_SEPARATOR);
             String clazz = split[0];
             String crudeMeans = split[1].trim();
-            StringBuffer pureMeansStringBuffer = Strings.newStringBuffer();
+            StringBuilder pureMeansStringBuffer = Strings.newStringBuilder();
             String pureMeans;
             if (mean.contains(Mark.MEAN_MEAN_SEPARATOR)) {
-                for (String crudeMean : crudeMeans.split(Mark.RegExp_MEAN_MEAN_SEPARATOR)) {
+                for (String crudeMean : crudeMeans.split(Mark.REGEXP_MEAN_MEAN_SEPARATOR)) {
                     if (Arguments.parameterLegal(crudeMean.trim())) {
                         pureMeansStringBuffer.append(crudeMean.trim() + Mark.MEAN_MEAN_SEPARATOR);
                     }
                 }
                 pureMeans = pureMeansStringBuffer.substring(0, pureMeansStringBuffer.length() - 1);
-            } else{
+            } else {
                 pureMeans = crudeMeans;
             }
             pureTranslate.append(clazz + Mark.CLASS_TRANSLATION_SEPARATOR + pureMeans + Mark.TRANSLATION_SEPARATOR);
@@ -36,30 +40,29 @@ public class WordFormat {
 
 
     private static String countriesFormat(String crudeTranslate) {
-        if (crudeTranslate.contains(Mark.ChineseMark.semicolon)) {
-            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.semicolon, Mark.EnglishMark.semicolon);
+        if (crudeTranslate.contains(Mark.ChineseMark.SEMICOLON)) {
+            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.SEMICOLON, Mark.EnglishMark.SEMICOLON);
         }
-        if (crudeTranslate.contains(Mark.ChineseMark.comma)){
-            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.comma, Mark.EnglishMark.comma);
+        if (crudeTranslate.contains(Mark.ChineseMark.COMMA)) {
+            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.COMMA, Mark.EnglishMark.COMMA);
         }
-        if (crudeTranslate.contains(Mark.ChineseMark.period)){
-            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.period, Mark.EnglishMark.period);
+        if (crudeTranslate.contains(Mark.ChineseMark.PERIOD)) {
+            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.PERIOD, Mark.EnglishMark.PERIOD);
         }
-        if (crudeTranslate.contains(Mark.ChineseMark.leftBracket)){
-            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.leftBracket, Mark.EnglishMark.leftBracket);
+        if (crudeTranslate.contains(Mark.ChineseMark.LEFT_BRACKET)) {
+            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.LEFT_BRACKET, Mark.EnglishMark.LEFT_BRACKET);
         }
-        if (crudeTranslate.contains(Mark.ChineseMark.rightBracket)){
-            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.rightBracket, Mark.EnglishMark.rightBracket);
+        if (crudeTranslate.contains(Mark.ChineseMark.RIGHT_BRACKET)) {
+            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.RIGHT_BRACKET, Mark.EnglishMark.RIGHT_BRACKET);
         }
-        if (crudeTranslate.contains(Mark.ChineseMark.ellipsis)){
-            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.ellipsis, Mark.EnglishMark.ellipsis);
+        if (crudeTranslate.contains(Mark.ChineseMark.ELLIPSIS)) {
+            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.ELLIPSIS, Mark.EnglishMark.ELLIPSIS);
         }
-        if (crudeTranslate.contains(Mark.ChineseMark.exclamation)){
-            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.exclamation, Mark.EnglishMark.exclamation);
+        if (crudeTranslate.contains(Mark.ChineseMark.EXCLAMATION)) {
+            crudeTranslate = crudeTranslate.replace(Mark.ChineseMark.EXCLAMATION, Mark.EnglishMark.EXCLAMATION);
         }
         return crudeTranslate;
     }
-
 
 
 }

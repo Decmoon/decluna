@@ -12,18 +12,22 @@ import com.decmoon.shortcut.string.Strings;
 import com.decmoon.shortcut.string.ToString;
 
 import java.io.*;
-import java.nio.file.Path;
 import java.util.Set;
+
 /**
  * There is an IO stream of word profiles
+ *
  * @author decmoon
  */
 public class WordsMemory {
     private static final String NAME = "word_memory.decluna";
-    private static final String PATH = WordsMemory.class.getResource("/static/framework/decluna/config/words/" +NAME).getPath();
+    private static final String PATH = WordsMemory.class.getResource("/static/framework/decluna/config/words/" + NAME).getPath();
 
     static {
         Logger.log("WordsMemory  initializing ");
+    }
+
+    private WordsMemory() {
     }
 
     public static Set<Word> load() {
@@ -33,12 +37,10 @@ public class WordsMemory {
                 BufferedReader bufferedReader = BufferedReaderGenerator.newBufferedReader(fileReader);
         ) {
             String s;
-            while ((s = DocumentReadingFactory.readingLineWithThrows(bufferedReader)) != null){
+            while ((s = DocumentReadingFactory.readingLineWithThrows(bufferedReader)) != null) {
                 words.add(Decode.decode(s));
             }
             Logger.log("WordsMemory  file load the success ");
-        } catch (FileNotFoundException e) {
-            ExceptionLogger.parameterErr(WordsMemory.class, "load()", e);
         } catch (IOException e) {
             ExceptionLogger.parameterErr(WordsMemory.class, "load()", e);
         }
@@ -46,10 +48,10 @@ public class WordsMemory {
     }
 
     private static String textFromFlush() {
-        StringBuffer stringBuffer = Strings.newStringBuffer();
+        StringBuilder stringBuilder = Strings.newStringBuilder();
         for (Word word : WordsView.getUnmodifiableWords())
-            stringBuffer.append(Encryption.encryption(word) + "\n");
-        return ToString.toString(stringBuffer);
+            stringBuilder.append(Encryption.encryption(word) + "\n");
+        return ToString.toString(stringBuilder);
     }
 
     public static void flush() {
@@ -57,9 +59,7 @@ public class WordsMemory {
                 FileWriter fileWriter = FileWriterGenerator.newFileWriterWithThrows(Files.newFile(PATH), true);
                 BufferedWriter bufferedWriter = BufferedWriterGenerator.newBufferedWriter(fileWriter);
         ) {
-            DocumentPrintingFactory.typewritingWithThrows(bufferedWriter,textFromFlush());
-        } catch (FileNotFoundException e) {
-            ExceptionLogger.parameterErr(WordsMemory.class, "flush()", e);
+            DocumentPrintingFactory.typewritingWithThrows(bufferedWriter, textFromFlush());
         } catch (IOException e) {
             ExceptionLogger.parameterErr(WordsMemory.class, "flush()", e);
         }
