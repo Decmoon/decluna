@@ -119,7 +119,7 @@ Decluna 项目版权归  © [Decmoon](https://github.com/Decmoon) 所有,仅用�
 
 转载请标明原址
 
-作者邮件：751229863@qq.com / decmoon@sina.com
+作者邮件：751229863@qq.com 
 
 其他
 -
@@ -236,7 +236,7 @@ Please contact the original author if you have other uses.<br/>
 
 Please mark the original address if you wanna reprinted.
 
-Email of author：751229863@qq.com / decmoon@sina.com
+Email of author：751229863@qq.com 
 
 Other
 -
