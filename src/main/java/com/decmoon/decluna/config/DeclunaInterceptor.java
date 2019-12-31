@@ -15,7 +15,7 @@ import java.util.Map;
  * @see Decluna
  */
 @Configuration
-public class DeclunaInterceptor  implements HandlerInterceptor {
+public class DeclunaInterceptor implements HandlerInterceptor {
 
     static {
         Logger.log("DeclunaInterceptor initializing");
@@ -24,9 +24,9 @@ public class DeclunaInterceptor  implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String requestURL = request.getRequestURL().toString();
-        boolean is = urlEquals(requestURL,Decluna.PAGES) || urlContains(requestURL, "/elf/", "/word/", "/css/", "index.html", "/framework/", "/html/", "/image/", "/js/");
+        boolean is = urlEquals(requestURL, Decluna.PAGES) || urlContains(requestURL, "/elf/", "/word/", "/css/", "index.html", "/framework/", "/html/", "/image/", "/js/");
         if (is) {
-            return is;
+            return true;
         } else {
             response.sendRedirect("/error");
         }

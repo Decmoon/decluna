@@ -1,5 +1,7 @@
 window.onload=function(){
 	$.getClass("../framework/bootstrap-4.3.1-dist/css/bootstrap.css");
+	$.getScript("../framework/bootstrap-4.3.1-dist/js/bootstrap.js");
+	
 	$.getClass("../css/trick.css");
 	$.nav();
 	$.luna();

@@ -25,6 +25,7 @@ public class RecordService {
         if (Check.codeLegal(wordName, translate)) {
             status = Status.OKAY;
             Word word = Decode.decode(wordName, translate);
+            System.out.println(word);
             Words.addWord(word);
             Jsons.put(data, "pretty", Pretty.pretty());
         } else {

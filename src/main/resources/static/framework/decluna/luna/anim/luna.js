@@ -15,7 +15,6 @@ String.prototype.render = function(context) {
 			currentObject = currentObject[variable];
 			if(currentObject === undefined || currentObject === null) return '';
 		}
-		console.log("String render : " + currentObject)
 		return currentObject;
 	});
 };
@@ -24,15 +23,25 @@ $(document).on('copy', function() {
 	showMessage('What did you copy,meow?', 5000, true);
 });
 
-$('#luna_home').click(function() {
+$("#luna_home").bind("click", function() {
 	window.location = "/";
 });
 
-$("#luna_cosplay").click(function() {
+$("#luna_cosplay").bind("click", function() {
 	loadOtherModel();
 });
 
-$('#luna_exit').click(function() {
+$("#luna_export").bind("click", function() {
+	window.location = "/elf/export";
+})
+
+$("#customFile").bind("change", function() {
+	let fileFakePath = $("#customFile").val();
+	let str = fileFakePath.substr(fileFakePath.lastIndexOf("\\") + 1)
+	$("#fileLabel").get(0).innerHTML = str;
+})
+
+$('#luna_exit').bind("click", function() {
 	window.setTimeout(function() {
 		$('#luna_div').hide();
 	}, 1300);
@@ -43,7 +52,7 @@ $('#luna_exit').click(function() {
 	var now = (new Date()).getHours();
 	if(isError) {
 		text = "Mayday!Mayday! Hahahh,you big FOOL !If you want to access a resource you can tell me, I won't tell you~";
-	}if(isUndeveloped){
+	} else if(isUndeveloped) {
 		text = "Stop stop stop! This is the <b>undeveloped</b> area. My master won't let you see it";
 	} else if(now > 23 || now <= 5) {
 		text = 'Are you a night owl? Hey,go to bed early~';

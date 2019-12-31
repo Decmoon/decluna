@@ -38,13 +38,13 @@ DECLUNA
 基于目前：
 + 单词的记录与查询(不限制语言)
 + Luna精灵
++ 文件导入导出
 + so on...
 
 预计更新
 -
 + notebook
 + 辅助记忆
-+ 文件导入导出
 + 国际化
 + so on...
 
@@ -150,13 +150,13 @@ Function
 For now 
 + Record and query of words (unlimited language)
 + Luna Elf
++ import and export of files
 + so on...
 
 Expected to update
 -
 + notebook
 + recite 
-+ import and export of files
 + internationalization
 + so on...
 

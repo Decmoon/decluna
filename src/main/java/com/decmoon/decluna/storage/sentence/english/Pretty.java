@@ -1,31 +1,34 @@
 package com.decmoon.decluna.storage.sentence.english;
 
+import com.alibaba.fastjson.JSONObject;
+import com.decmoon.decluna.storage.sentence.HandOut;
+import com.decmoon.decluna.storage.utils.Jsons;
 import com.decmoon.shortcut.math.RandomNumberGenerator;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
  * @author decmoon
  */
-@Component
 public class Pretty {
 
-    private static List<String> list = new ArrayList<>();
+    private static final String PATH = "/static/framework/decluna/config/sentence/english/pretty.json";
+
+    private static final JSONObject JSON;
+
+    private static final List<String> LIST;
+
+    static {
+        JSON = Jsons.getJsonFromFile(PATH);
+        LIST = HandOut.distribution(JSON);
+    }
 
     private Pretty() {
     }
 
-    static {
-        list.add("Life was like a box of chocolates, you never know what you're gonna get.^---Forrest Gump");
-        list.add("Miracles happen every day.^---Forrest Gump");
-        list.add("You know some birds are not meant to be caged, their feathers are just too bright.^---Shawshank Redemption");
-        list.add("Yes, the past can hurt.But I think you can either run from it or learn from it.^---The Lion King");
-    }
 
     public static String pretty() {
-        return list.get(RandomNumberGenerator.random(0, list.size()));
+        return LIST.get(RandomNumberGenerator.random(0, LIST.size()));
     }
-
 }

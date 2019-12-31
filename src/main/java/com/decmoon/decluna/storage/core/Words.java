@@ -1,11 +1,14 @@
 package com.decmoon.decluna.storage.core;
 
 
+import com.decmoon.decluna.storage.exception.WordLoadingException;
 import com.decmoon.decluna.storage.io.WordsMemory;
 import com.decmoon.decluna.storage.word.Word;
+import com.decmoon.shortcut.exception.ExceptionLogger;
 import com.decmoon.shortcut.log.Logger;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -17,7 +20,11 @@ public class Words {
 
     static {
         Logger.log("Words  initializing ");
-        wordsContainer = WordsMemory.load();
+        try {
+            wordsContainer = WordsMemory.load();
+        } catch (WordLoadingException e) {
+            ExceptionLogger.parameterErr(Words.class, "Words()  failed initialization ");
+        }
     }
 
     private Words() {
@@ -33,12 +40,21 @@ public class Words {
 
 
     public static void addWord(Word word) {
+        if(wordsContainer.contains(word)){
+            wordsContainer.remove(word);
+        }
         wordsContainer.add(word);
         WordsMemory.flush();
     }
 
     public static void addWord(Word... words) {
         for (Word word : words) {
+            addWord(word);
+        }
+    }
+
+    public static void addWord(List<Word> list) {
+        for (Word word : list) {
             addWord(word);
         }
     }
@@ -58,4 +74,11 @@ public class Words {
         }
     }
 
+    public static void fileImport() {
+        try {
+            wordsContainer = WordsMemory.load();
+        } catch (WordLoadingException e) {
+            WordsMemory.flush();
+        }
+    }
 }

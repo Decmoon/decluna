@@ -245,11 +245,32 @@
 
 .luna_home:before {
 	content: "\e62e";
+	color: lightblue;
 }
 
 .luna_cosplay:before {
 	content: "\e631";
+	color: lightblue;
+}
+
+.luna_export:before{
+	content: "\e63c";
+	color: lightblue;
+}
+.luna_import:before{
+	content: "\e638";
+	color: lightblue;
 }
 .luna_exit:before {
 	content: "\e609";
+	color: lightblue;
+}
+
+.luna_home:hover,
+.luna_cosplay:hover,
+.luna_export:hover,
+.luna_import:hover,
+.luna_exit:hover{
+	border-radius: 50%;
+	box-shadow: 0 0 60px greenyellow;
 }

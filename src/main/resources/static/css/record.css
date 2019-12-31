@@ -1,10 +1,3 @@
-body {
-	/*background-image: url(../image/record/bg.jpg);
-	background-repeat: no-repeat;
-	height: auto;
-	background-size: 100%, 100%;*/
-}
-
 
 
 .wordEntry {
@@ -63,7 +56,7 @@ body {
 }
 
 option{
-	background-color: cornflowerblue;
+	background-color: darkgray;
 	opacity: 0.1;
 	color: white;
 }

@@ -1,7 +1,7 @@
 window.onload = function() {
 	
-
-
+		
+	
 	let star = '<div class="star-1"></div><div class="star-2"></div>';
     for(i = 0 ; i < 10 ; i++){
     	star+=star;
@@ -16,5 +16,12 @@ window.onload = function() {
 	
 	$("#birds").html(bird);
 	$.luna();
+	
+	
+	
+	$.getClass("../framework/bootstrap-4.3.1-dist/css/bootstrap.css");
+	$.getScript("../framework/bootstrap-4.3.1-dist/js/bootstrap.js");
+	
 }	
 isError=true;
+isUndeveloped=false;

@@ -5,10 +5,8 @@ import com.decmoon.decluna.service.elf.ElfService;
 import com.decmoon.decluna.storage.elf.LunaConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.concurrent.Callable;
@@ -45,10 +43,21 @@ public class LunaElfController {
         return () -> elfService.model(lunaCode);
     }
 
-
     @GetMapping("/down")
     public void downloadFile(HttpServletResponse response, String path) {
         elfService.fileDownload(response, path);
+    }
+
+
+    @GetMapping("/export")
+    public void export(HttpServletResponse response) {
+        elfService.export(response);
+    }
+
+
+    @PostMapping("/import")
+    public void fileImport(@RequestParam("fileImport") MultipartFile multipartFile, HttpServletResponse response) {
+        elfService.fileImport(multipartFile, response);
     }
 
 

@@ -9101,15 +9101,43 @@ jQuery.luna=function(){
 					'<div class="luna_tips" id="luna_tips"></div>'+
 					'<canvas id="live2d" width="280" height="250" class="luna_canvas"></canvas>'+
 					'<div class="luna_tool" id="luna_tool">'+
-						'<span class="luna_home" id="luna_home"></span>'+
-						'<span class="luna_cosplay" id="luna_cosplay"></span>'+
-						'<span class="luna_exit" id="luna_exit"></span>'+
+						'<span class="cursor_hover luna_home " id="luna_home"></span>'+
+						'<span class="cursor_hover luna_cosplay" id="luna_cosplay"></span>'+
+						'<span class="cursor_hover luna_export" id="luna_export"></span>'+
+						'<span class="cursor_hover luna_import" id="luna_import"  data-toggle="modal" data-target="#alert_import"></span>'+
+						'<span class="cursor_hover luna_exit" id="luna_exit"></span>'+
 					'</div>'+
 				'</div>'+
+				
+				
+				'<div class="modal fade" id="alert_import">'+
+					'<div class="modal-dialog">'+
+						'<div class="modal-content">'+
+							'<form action="/elf/import" method="post" enctype="multipart/form-data">'+
+								'<div class="modal-header">'+
+									'<h4 class="modal-title">Upload the "word memory.decluna" file</h4>'+
+									'<button type="button" class="close" data-dismiss="modal">&times;</button>'+
+								'</div>'+
+								'<div class="modal-body">'+
+									'<div class="custom-file">'+
+										'<input type="file" name="fileImport" class="cursor_hover custom-file-input" id="customFile">'+
+										'<label class=" custom-file-label" for="cursor_hover customFile" id="fileLabel">Choose file</label>'+
+									'</div>'+
+								'</div>'+
+								'<div class="modal-footer">'+
+									'<input type="submit" class="cursor_hover btn btn-secondary" value="Upload"/>'+
+								'</div>'+
+							'</form>'+
+						'</div>'+
+					'</div>'+
+				'</div>'+
+					
+				
 				'<link rel="stylesheet" type="text/css" href="../framework/decluna/luna/anim/luna.css" />'+
 				'<script src="../framework/decluna/luna/anim/live2d.js"></script>'+
 				'<script src="../framework/decluna/luna/anim/luna.js"></script>'+
 				'<script type="text/javascript">initModel("/elf/getLunaTalk")</script>';
+				
 		$("#luna").html(luna);
 }
 

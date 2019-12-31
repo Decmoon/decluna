@@ -2,13 +2,11 @@ package com.decmoon.decluna.storage.elf;
 
 import com.alibaba.fastjson.JSONObject;
 import com.decmoon.decluna.storage.utils.Jsons;
-import lombok.Data;
 import lombok.Getter;
 
 /**
  * @author decmoon
  */
-
 public class LunaConfig {
 
     @Getter

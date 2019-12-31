@@ -17,15 +17,27 @@
       ]
     },
     {
-      "selector": "#luna_exit",
-      "text": [
-        "Do you want to play <b>hide-and-seek</b>? Refresh the page and I'll be back~~~"
-      ]
-    },
-    {
       "selector": "#luna_cosplay",
       "text": [
        "Do you want to change clothes for me?"
+      ]
+    },
+    {
+      "selector": "#luna_export",
+      "text": [
+        "You can back up your own dictionary and share it with your friends~~!"
+      ]
+    },
+    {
+      "selector": "#luna_import",
+      "text": [
+        "Import the archive to keep me energized~~!"
+      ]
+    },
+    {
+      "selector": "#luna_exit",
+      "text": [
+        "Do you want to play <b>hide-and-seek</b>? Refresh the page and I'll be back~~~"
       ]
     }
   ],
