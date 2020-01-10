@@ -7,10 +7,15 @@ window.onload=function(){
 	
 	$.getClass("../framework/buttonhover/styles.css")
 	
+	$.getScript("../js/operation.js");
+	
 	$.getClass("../css/lookup.css");
 	$.getScript("../js/operation.js")
 	$.getScript("../js/lookup.js")
 	$.getClass("../framework/bg-record/bg-record.css");
+	
+	
+	
 	$.nav();
 	$.luna();
 	

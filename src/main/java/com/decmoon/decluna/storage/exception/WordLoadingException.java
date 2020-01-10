@@ -1,5 +1,10 @@
 package com.decmoon.decluna.storage.exception;
 
-public class WordLoadingException extends Exception {
+import com.decmoon.shortcut.exception.ShortCutException;
 
+public class WordLoadingException extends ShortCutException {
+
+    public WordLoadingException() {
+        super(WordLoadingException.class, "Word loading failure ,error happened");
+    }
 }

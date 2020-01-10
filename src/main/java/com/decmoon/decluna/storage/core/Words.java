@@ -20,11 +20,7 @@ public class Words {
 
     static {
         Logger.log("Words  initializing ");
-        try {
-            wordsContainer = WordsMemory.load();
-        } catch (WordLoadingException e) {
-            ExceptionLogger.parameterErr(Words.class, "Words()  failed initialization ");
-        }
+        wordsContainer = WordsMemory.load();
     }
 
     private Words() {
@@ -40,7 +36,7 @@ public class Words {
 
 
     public static void addWord(Word word) {
-        if(wordsContainer.contains(word)){
+        if (wordsContainer.contains(word)) {
             wordsContainer.remove(word);
         }
         wordsContainer.add(word);
@@ -75,10 +71,6 @@ public class Words {
     }
 
     public static void fileImport() {
-        try {
-            wordsContainer = WordsMemory.load();
-        } catch (WordLoadingException e) {
-            WordsMemory.flush();
-        }
+        wordsContainer = WordsMemory.load();
     }
 }

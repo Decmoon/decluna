@@ -5,6 +5,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.decmoon.shortcut.argument.Arguments;
 import com.decmoon.shortcut.exception.ExceptionLogger;
+import com.decmoon.shortcut.exception.argument.ParameterIllegalException;
+import com.decmoon.shortcut.exception.io.file.FileNotConnectException;
 import com.decmoon.shortcut.file.BufferedReaderGenerator;
 import com.decmoon.shortcut.file.FileReaderGenerator;
 import com.decmoon.shortcut.file.Files;
@@ -63,7 +65,8 @@ public class Jsons {
     public static JSONObject getJsonFromFile(String path) {
         String effectivePath = Jsons.class.getResource(path).getPath();
         if (Arguments.parameterLegal(effectivePath)) {
-            try (BufferedReader bufferedReader = BufferedReaderGenerator.newBufferedReader(FileReaderGenerator.newFileReader(Files.newFile(effectivePath)));) {
+            try {
+                BufferedReader bufferedReader = BufferedReaderGenerator.newBufferedReader(FileReaderGenerator.newFileReader(Files.newFile(effectivePath)));
                 String s;
                 StringBuilder stringBuilder = Strings.newStringBuilder();
                 while ((s = bufferedReader.readLine()) != null) {
@@ -71,10 +74,19 @@ public class Jsons {
                 }
                 return (JSONObject) JSON.parse(stringBuilder.toString());
             } catch (IOException e) {
-                ExceptionLogger.parameterErr(Jsons.class, "getJsonFromFile(String path)", e);
+                try {
+                    throw new FileNotConnectException();
+                } catch (FileNotConnectException e1) {
+                    e1.shutdown();
+                }
             }
+
         } else {
-            ExceptionLogger.parameterErr(Jsons.class, "getJsonFromFile(String path)", "path not exist");
+            try {
+                throw new ParameterIllegalException();
+            } catch (ParameterIllegalException e) {
+                e.shutdown();
+            }
         }
 
         return null;

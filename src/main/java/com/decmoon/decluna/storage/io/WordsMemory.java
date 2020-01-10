@@ -2,13 +2,14 @@ package com.decmoon.decluna.storage.io;
 
 import com.decmoon.decluna.storage.core.WordsView;
 import com.decmoon.decluna.storage.exception.WordLoadingException;
+import com.decmoon.decluna.storage.exception.WordMemoryPathException;
 import com.decmoon.decluna.storage.word.Word;
 import com.decmoon.decluna.storage.word.code.Decode;
 import com.decmoon.decluna.storage.word.code.Encryption;
 import com.decmoon.shortcut.argument.Arguments;
 import com.decmoon.shortcut.collection.list.Lists;
 import com.decmoon.shortcut.collection.set.Sets;
-import com.decmoon.shortcut.exception.ExceptionLogger;
+import com.decmoon.shortcut.exception.io.file.FileNotConnectException;
 import com.decmoon.shortcut.file.*;
 import com.decmoon.shortcut.log.Logger;
 import com.decmoon.shortcut.string.Strings;
@@ -28,19 +29,26 @@ public class WordsMemory {
     @Getter
     private static final String NAME = "word_memory.decluna";
     @Getter
-    private static final String PATH = WordsMemory.class.getResource("/static/framework/decluna/config/words/" + NAME).getPath();
+    private static String PATH;
 
     static {
+        try {
+            initPath();
+        } catch (WordMemoryPathException e) {
+            e.shutdown();
+        }
         Logger.log("WordsMemory  initializing ");
     }
+
+
 
     private WordsMemory() {
     }
 
-    public static Set<Word> load() throws WordLoadingException {
+    public static Set<Word> load() {
         Set<Word> words = Sets.newHashSet();
         try (
-                FileReader fileReader = FileReaderGenerator.newFileReaderWithThrows(Files.newFile(PATH));
+                FileReader fileReader = FileReaderGenerator.newFileReader(Files.newDocument(PATH, true));
                 BufferedReader bufferedReader = BufferedReaderGenerator.newBufferedReader(fileReader);
         ) {
             String s;
@@ -53,18 +61,21 @@ public class WordsMemory {
                     throw new IOException();
                 }
             }
-            wordList.forEach(word->words.add(word));
+            wordList.forEach(word -> words.add(word));
             Logger.log("WordsMemory  file load the success ");
         } catch (IOException e) {
-            ExceptionLogger.parameterErr(WordsMemory.class, "load()","error happened");
-            throw new WordLoadingException();
+            try {
+                throw new WordLoadingException();
+            } catch (WordLoadingException e1) {
+                e1.shutdown();
+            }
         }
         return words;
     }
 
     private static String textFromFlush() {
         StringBuilder stringBuilder = Strings.newStringBuilder();
-        for (Word word : WordsView.getUnmodifiableWords()){
+        for (Word word : WordsView.getUnmodifiableWords()) {
             stringBuilder.append(Encryption.encryption(word) + "\n");
         }
         return ToString.toString(stringBuilder);
@@ -77,10 +88,22 @@ public class WordsMemory {
         ) {
             DocumentPrintingFactory.typewritingWithThrows(bufferedWriter, textFromFlush());
         } catch (IOException e) {
-            ExceptionLogger.parameterErr(WordsMemory.class, "flush()", e);
+            try {
+                throw new FileNotConnectException();
+            } catch (FileNotConnectException e1) {
+                e1.shutdown();
+            }
         }
 
 
+    }
+
+    private static void initPath() throws WordMemoryPathException {
+        try {
+            PATH = WordsMemory.class.getResource("/static/framework/decluna/config/words/" + NAME).getPath();
+        } catch (NullPointerException e) {
+            throw new WordMemoryPathException();
+        }
     }
 
 }

@@ -1,14 +1,14 @@
 function lookup() {
 	createLookArea();
 	$.ajax({
-		url: decluna_wrod+"/lookup/search",
+		url: decluna_wrod + "/lookup/search",
 		type: "post",
 		data: {
 			wordName: $("#word").val()
 		},
 		dataType: "json",
 		success: function(data) {
-			decodeJson_word(data.data,data.info)
+			decodeJson_word(data.data, data.info)
 			decodeJson_translate(data.data, data.info)
 
 			$("#test").click();
@@ -27,17 +27,17 @@ function createLookArea() {
 	$("#look").html(a);
 }
 
-function decodeJson_word(data,string) {
-	string = string+"";
+function decodeJson_word(data, string) {
+	string = string + "";
 	if(data == "okay") {
 		$("#look h5").get(0).innerHTML = string.split(":")[0];
-	}else if(data == "no"){
+	} else if(data == "no") {
 		$("#look h5").html("Uh-oh,luna didn't find the word in the dictionary");
 	}
 }
 
 function decodeJson_translate(data, string) {
-	string = string+"";
+	string = string + "";
 	if(data == "okay") {
 		let html = "";
 		let translates = string.split(":")[1].split("^");
@@ -49,5 +49,11 @@ function decodeJson_translate(data, string) {
 	} else if(data == "no") {
 		$("#look span").html(string);
 	}
-
 }
+
+document.onkeydown = function(event) {
+	var e = event || window.event || arguments.callee.caller.arguments[0];
+	if(e.key == "Enter" && nonEquals($("#word").val(), "")) {
+		lookup();
+	}
+};
