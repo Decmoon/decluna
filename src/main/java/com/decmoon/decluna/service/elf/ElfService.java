@@ -9,7 +9,7 @@ import com.decmoon.decluna.storage.io.ResponseDownload;
 import com.decmoon.decluna.storage.io.WordsMemory;
 import com.decmoon.shortcut.argument.Arguments;
 import com.decmoon.shortcut.collection.list.Lists;
-import com.decmoon.shortcut.exception.ExceptionLogger;
+import com.decmoon.shortcut.exception.argument.ParameterIllegalException;
 import com.decmoon.shortcut.file.Files;
 import com.decmoon.shortcut.math.RandomNumberGenerator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +49,8 @@ public class ElfService {
             put(jsonObject, "message", LunaMessage.getMessage(newLunaCode));
             return jsonObject;
         } else {
-            ExceptionLogger.parameterErr(ElfService.class, "changeModel(String lunaCode)", "lunaCode is not exist");
+            throw new ParameterIllegalException();
         }
-        return null;
-
     }
 
     /**
@@ -63,11 +61,10 @@ public class ElfService {
      */
     public JSONObject model(String lunaCodeString) {
         String lunaCode = LunaCode.getLunaCode(lunaCodeString + ".luna");
-        if (Arguments.parameterLegal(lunaCode))
+        if (Arguments.parameterLegal(lunaCode)) {
             return getJsonFromFile(LunaConfig.getPATH() + lunaCode);
-        else
-            ExceptionLogger.parameterErr(ElfService.class, "model(String lunaCodeString)", "lunaCode not exist");
-        return null;
+        }
+        throw new ParameterIllegalException();
     }
 
     /**
@@ -103,7 +100,7 @@ public class ElfService {
                 response.sendRedirect("/error");
             }
         } catch (IOException e) {
-            ExceptionLogger.parameterErr(ElfService.class, "fileImport(MultipartFile multipartFile, HttpServletResponse response)", e);
+            throw new ParameterIllegalException();
         }
 
     }

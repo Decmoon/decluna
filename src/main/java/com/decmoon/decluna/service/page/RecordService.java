@@ -9,6 +9,7 @@ import com.decmoon.decluna.storage.word.Word;
 import com.decmoon.decluna.storage.word.code.Check;
 import com.decmoon.decluna.storage.word.code.Decode;
 import com.decmoon.decluna.storage.word.code.WordFormat;
+import com.decmoon.shortcut.collection.CollectionExhibitor;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RecordService {
-
 
     public JSONObject add(String wordName, String crudeTranslate) {
         JSONObject data = Jsons.newLinkedJSONObject();
@@ -33,4 +33,5 @@ public class RecordService {
         Jsons.put(data, status.getKey(), status.getValue());
         return data;
     }
+
 }

@@ -2,9 +2,10 @@ package com.decmoon.decluna.storage.elf;
 
 import com.decmoon.shortcut.argument.Arguments;
 import com.decmoon.shortcut.collection.list.Lists;
-import com.decmoon.shortcut.exception.ExceptionLogger;
+import com.decmoon.shortcut.core.log.Console;
+import com.decmoon.shortcut.exception.argument.ParameterIllegalException;
+import com.decmoon.shortcut.exception.io.file.FileNotConnectException;
 import com.decmoon.shortcut.file.Files;
-import com.decmoon.shortcut.log.Logger;
 
 import java.io.File;
 import java.util.Collections;
@@ -19,7 +20,7 @@ public class LunaCode {
     private static final List<String> LUNA_CODE_LIST;
 
     static {
-        Logger.log("LunaCode loading ...");
+        Console.info("LunaCode loading ...");
         LUNA_CODE_LIST = scan(PATH);
     }
 
@@ -44,9 +45,9 @@ public class LunaCode {
             }
         }
         if (Arguments.parameterIllegal(list)) {
-            ExceptionLogger.parameterErr(LunaCode.class, "luna preset loading failure");
+            throw new FileNotConnectException();
         } else {
-            Logger.log("LunaCode loaded successfully ...");
+            Console.info("LunaCode loaded successfully ...");
         }
         return list;
     }

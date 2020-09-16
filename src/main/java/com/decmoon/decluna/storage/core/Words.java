@@ -1,11 +1,9 @@
 package com.decmoon.decluna.storage.core;
 
 
-import com.decmoon.decluna.storage.exception.WordLoadingException;
 import com.decmoon.decluna.storage.io.WordsMemory;
 import com.decmoon.decluna.storage.word.Word;
-import com.decmoon.shortcut.exception.ExceptionLogger;
-import com.decmoon.shortcut.log.Logger;
+import com.decmoon.shortcut.core.log.Console;
 
 import java.util.Collections;
 import java.util.List;
@@ -18,8 +16,9 @@ public class Words {
 
     private static Set<Word> wordsContainer;
 
+
     static {
-        Logger.log("Words  initializing ");
+        Console.info("Words  initializing ");
         wordsContainer = WordsMemory.load();
     }
 

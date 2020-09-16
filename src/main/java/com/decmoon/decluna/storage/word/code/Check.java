@@ -3,6 +3,7 @@ package com.decmoon.decluna.storage.word.code;
 import com.decmoon.decluna.storage.word.Mark;
 import com.decmoon.shortcut.argument.Arguments;
 
+
 /**
  * @author decmoon
  */
@@ -12,7 +13,7 @@ public class Check {
     }
 
     public static boolean codeLegal(String codeName, String translate) {
-        if (Arguments.parameterLegal(codeName, translate)) {
+        if (Arguments.parameterLegal(Arguments.asList(codeName, translate))) {
             if (!translate.contains(Mark.TRANSLATION_SEPARATOR)) {
                 return hasTranslateOnly(translate);
             } else {
@@ -26,7 +27,7 @@ public class Check {
     private static boolean hasTranslateOnly(String translate) {
         if (translate.contains(Mark.CLASS_TRANSLATION_SEPARATOR)) {
             String[] split = translate.split(Mark.REGEXP_CLASS_TRANSLATION_SEPARATOR);
-            if (split.length == 2 && Arguments.parameterLegal(split[0], split[1])) {
+            if (split.length == 2 && Arguments.parameterLegal(Arguments.asList(split[0], split[1]))) {
                 return true;
             }
         }

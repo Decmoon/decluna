@@ -1,14 +1,19 @@
 DECLUNA
 -
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/Decmoon/decluna) 
+
 **customize your own science dictionary**
 
-**Author**： Decmoon 
+**Author**
+
+> [<img width="30px" title="Decmoon" src="https://avatars3.githubusercontent.com/u/51840843?s=400&u=d909c885dc61d75a2ca60c6d52c2315714d8bdfe&v=4"/>
+](https://github.com/Decmoon)
 
 启
 -
 智能词典，为了帮助学习英语而困扰的人设计的专属词典。
 
-ps:这个项目是为了纪念我与TA的相遇，我们因为英语相识相认相知，一直走到现在，
+> 这个项目是为了纪念我与TA的相遇，我们因为英语相识相认相知，一直走到现在，
 然而这个程序员并不懂得如何浪漫，玫瑰与美酒貌似并不适合我们这个群体，不如来敲代码吧...
 
 功能
@@ -17,7 +22,7 @@ ps:这个项目是为了纪念我与TA的相遇，我们因为英语相识相认
 + 单词的记录与查询(不限制语言)
 + 页面精灵
 + 文件导入导出
-+ so on...
++ etc
 
 预计更新
 -
@@ -96,8 +101,3 @@ Decluna 项目版权归  © [Decmoon](https://github.com/Decmoon) 所有,仅用�
 
 转载请标明原址
 
-其他
--
-愿已经有另一半得你，执子之手，与子偕老<br/>
-
-祝福keep单身的你，马上就会遇到对的TA~

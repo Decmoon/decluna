@@ -9,9 +9,9 @@ import com.decmoon.decluna.storage.word.code.Encryption;
 import com.decmoon.shortcut.argument.Arguments;
 import com.decmoon.shortcut.collection.list.Lists;
 import com.decmoon.shortcut.collection.set.Sets;
+import com.decmoon.shortcut.core.log.Console;
 import com.decmoon.shortcut.exception.io.file.FileNotConnectException;
 import com.decmoon.shortcut.file.*;
-import com.decmoon.shortcut.log.Logger;
 import com.decmoon.shortcut.string.Strings;
 import com.decmoon.shortcut.string.ToString;
 import lombok.Getter;
@@ -37,9 +37,8 @@ public class WordsMemory {
         } catch (WordMemoryPathException e) {
             e.shutdown();
         }
-        Logger.log("WordsMemory  initializing ");
+        Console.info("WordsMemory  initializing ");
     }
-
 
 
     private WordsMemory() {
@@ -62,7 +61,7 @@ public class WordsMemory {
                 }
             }
             wordList.forEach(word -> words.add(word));
-            Logger.log("WordsMemory  file load the success ");
+            Console.info("WordsMemory  file load the success ");
         } catch (IOException e) {
             try {
                 throw new WordLoadingException();
@@ -86,13 +85,9 @@ public class WordsMemory {
                 FileWriter fileWriter = FileWriterGenerator.newFileWriterWithThrows(Files.newFile(PATH), true);
                 BufferedWriter bufferedWriter = BufferedWriterGenerator.newBufferedWriter(fileWriter);
         ) {
-            DocumentPrintingFactory.typewritingWithThrows(bufferedWriter, textFromFlush());
+            DocumentPrintingFactory.typewriting(bufferedWriter, textFromFlush());
         } catch (IOException e) {
-            try {
-                throw new FileNotConnectException();
-            } catch (FileNotConnectException e1) {
-                e1.shutdown();
-            }
+            throw new FileNotConnectException();
         }
 
 

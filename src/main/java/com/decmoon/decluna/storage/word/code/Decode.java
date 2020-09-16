@@ -35,7 +35,7 @@ public class Decode {
             String[] split = stringFromFile.split(Mark.REGEXP_WORD_TRANSLATION_SEPARATOR);
             String wordName = split[0];
             String translatesString = split[1];
-            if (Arguments.parameterIllegal(wordName, translatesString)) {
+            if (Arguments.parameterIllegal(Arguments.asList(wordName, translatesString))) {
                 return null;
             }
             List<Translate> translateList = Lists.newArrayList();

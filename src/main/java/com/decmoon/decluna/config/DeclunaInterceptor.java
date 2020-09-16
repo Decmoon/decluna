@@ -1,6 +1,6 @@
 package com.decmoon.decluna.config;
 
-import com.decmoon.shortcut.log.Logger;
+import com.decmoon.shortcut.core.log.Console;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -18,7 +18,7 @@ import java.util.Map;
 public class DeclunaInterceptor implements HandlerInterceptor {
 
     static {
-        Logger.log("DeclunaInterceptor initializing");
+        Console.info("DeclunaInterceptor initializing");
     }
 
     @Override

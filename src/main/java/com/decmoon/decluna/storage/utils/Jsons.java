@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.decmoon.shortcut.argument.Arguments;
-import com.decmoon.shortcut.exception.ExceptionLogger;
 import com.decmoon.shortcut.exception.argument.ParameterIllegalException;
 import com.decmoon.shortcut.exception.io.file.FileNotConnectException;
 import com.decmoon.shortcut.file.BufferedReaderGenerator;
@@ -38,19 +37,19 @@ public class Jsons {
     }
 
     public static void put(JSONObject jsonObject, String key, String value) {
-        if (Arguments.parameterLegal(jsonObject, key, value)) {
+        if (Arguments.parameterLegal(false,Arguments.asList( key, value))) {
             jsonObject.put(key, value);
         } else {
-            ExceptionLogger.parameterErr(Jsons.class, "put(JSONObject jsonObject, String key, String value)");
+           throw new ParameterIllegalException();
         }
 
     }
 
     public static void add(JSONArray jsonArray, Object object) {
-        if (Arguments.parameterLegal(jsonArray, object)) {
+        if (Arguments.parameterLegal(Arguments.asList(jsonArray, object))) {
             jsonArray.add(object);
         } else {
-            ExceptionLogger.parameterErr(Jsons.class, "add(JSONArray jsonArray, Object object)");
+            throw new ParameterIllegalException();
         }
     }
 

@@ -1,7 +1,6 @@
 package com.decmoon.decluna.storage.io;
 
-import com.decmoon.decluna.service.elf.ElfService;
-import com.decmoon.shortcut.exception.ExceptionLogger;
+import com.decmoon.shortcut.exception.argument.ParameterIllegalException;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +29,7 @@ public class ResponseDownload {
                 i = bis.read(buffer);
             }
         } catch (IOException e) {
-            ExceptionLogger.parameterErr(ElfService.class, " fileDownload(HttpServletResponse response, String path)", "fileDownload failure");
+            throw new ParameterIllegalException();
         }
 
     }
