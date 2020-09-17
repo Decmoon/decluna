@@ -32,7 +32,7 @@ public class DeclunaController {
     @PostMapping("/record/add")
     @ResponseBody
     public Callable<JSONObject> add(String wordName, String translate) {
-        return () -> recordService.add(wordName.trim(), translate);
+        return () -> recordService.add(wordName, translate);
     }
 
     @GetMapping("/check/check")

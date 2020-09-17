@@ -13,7 +13,7 @@ public class Check {
     }
 
     public static boolean codeLegal(String codeName, String translate) {
-        if (Arguments.parameterLegal(Arguments.asList(codeName, translate))) {
+        if (Arguments.parameterLegal(true, Arguments.asList(codeName, translate))) {
             if (!translate.contains(Mark.TRANSLATION_SEPARATOR)) {
                 return hasTranslateOnly(translate);
             } else {

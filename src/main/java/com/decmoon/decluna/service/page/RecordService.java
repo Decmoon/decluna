@@ -10,7 +10,11 @@ import com.decmoon.decluna.storage.word.code.Check;
 import com.decmoon.decluna.storage.word.code.Decode;
 import com.decmoon.decluna.storage.word.code.WordFormat;
 import com.decmoon.shortcut.collection.CollectionExhibitor;
+import com.decmoon.shortcut.core.log.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author decmoon
@@ -19,10 +23,12 @@ import org.springframework.stereotype.Service;
 public class RecordService {
 
     public JSONObject add(String wordName, String crudeTranslate) {
+//        CollectionExhibitor.see(null);
         JSONObject data = Jsons.newLinkedJSONObject();
         String translate = WordFormat.format(crudeTranslate);
         Status status;
         if (Check.codeLegal(wordName, translate)) {
+            wordName = wordName.trim();
             status = Status.OKAY;
             Word word = Decode.decode(wordName, translate);
             Words.addWord(word);

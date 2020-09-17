@@ -1,7 +1,9 @@
 server:
   port: 80
   error:
-    path: /or
-#spring:
-#  main:
-#    allow-bean-definition-overriding: true
+    path: "error"
+spring:
+  shortcut:
+    log:
+      info: "F:/Java/JavaProjects/log/info.txt"
+      err: "F:/Java/JavaProjects/log/err.txt"

@@ -1,33 +1,28 @@
 package com.decmoon.decluna.config;
 
+import com.decmoon.shortcut.core.config.ShortCutAspect;
 import com.decmoon.shortcut.core.log.Console;
-import com.decmoon.shortcut.exception.ShortCutException;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
 
-//@Aspect
-//@Component
-@Deprecated
-public class DecLunaAspect  {
+@Aspect
+public class DecLunaAspect extends ShortCutAspect {
+
     {
-        Console.warn("DecLuna aspect");
+        Console.warn("The aspect service of Decluna is started");
     }
 
-    @Pointcut("execution(* com.decmoon.decluna.service.*.*.*(..))")
+    @Override
+    @Pointcut("execution(* com.decmoon.decluna.service.page.*.*(..))")
     public void pointcut() {
     }
 
 
-
-        @Around("pointcut()")
+    @Around("pointcut()")
     public Object around(ProceedingJoinPoint joinPoint) throws Throwable {
-        try {
-            return joinPoint.proceed();
-        } catch (ShortCutException e) {
-            e.printStackTrace();
-            e.shutdown();
-        }
-        return null;
+        return doReturn(() -> joinPoint.proceed());
     }
+
 }

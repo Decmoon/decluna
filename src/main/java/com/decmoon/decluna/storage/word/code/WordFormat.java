@@ -13,6 +13,9 @@ public class WordFormat {
     }
 
     public static String format(String translate) {
+        if(translate.lastIndexOf("*")+1 == translate.length()){
+            return "";
+        }
         String crudeTranslate = countriesFormat(translate);
         StringBuilder pureTranslate = Strings.newStringBuilder();
         String str = crudeTranslate.trim();
